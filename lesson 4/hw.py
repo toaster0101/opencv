@@ -9,6 +9,8 @@ coinsGrey=cv2.cvtColor(coins,cv2.COLOR_BGR2GRAY)
 coinsGreyBlur=cv2.blur(coinsGrey,(3,3))
 
 detectedCircles=cv2.HoughCircles(coinsGreyBlur,cv2.HOUGH_GRADIENT,1,100,param1=45,param2=25,minRadius=10,maxRadius=40)
+#param1 = higher value is fewer edges, lower is higher, controls edge detection using canny edge detector
+#param2 = how close it has to be to a circle to be decected in %
 detectedCircles=np.uint16(np.round(detectedCircles))
 
 for i in detectedCircles[0,:]:
